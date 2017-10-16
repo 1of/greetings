@@ -1,3 +1,3 @@
 # greetings
-<h1>My first steps in git</h1>
-Hello everyone! Can I be usefull for the people?=)
+<h1>First steps</h1>
+lorem a lot of text
