@@ -12,6 +12,7 @@
 }
 .modal-header svg:hover{
 	color: red;
+	cursor: pointer;
 }
 .modal-header p {
 	margin-bottom: 15px;
@@ -23,9 +24,12 @@
 	background: rgba(200, 100, 150, 0.2);
 	padding: 5px;
 	margin-top: 5px;
+	z-index: -5;
+
 }
 .modal-close-icon:hover {
 	color: rgba(0,0,0,1);
+
 }
 button[type="button"] {
 	margin: 15px 15px 15px 0;
@@ -44,4 +48,19 @@ input[type="number"] {
 form div {
 	margin-right: 10px;
 	padding-left: 1px;
+}
+.modal-close-div {
+	display: inline-block;
+	width: 35px;
+	height: 35px;
+	background: rgba(200, 100, 150, 0.2);
+	border-radius: 50%;
+	text-align: center;
+	line-height: 1;
+	font-size: 35px;
+	vertical-align: middle;
+}
+.modal-close-div:hover {
+	cursor: pointer;
+	color: red;
 }

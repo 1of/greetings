@@ -22,7 +22,7 @@ function getModalStyle() {
   return {
     top: `${top}%`,
     left: `${left}%`,
-    height: 200+(items.length*50)+'px',
+    height: 250+(items.length*50)+'px',
     transform: `translate(-${top}%, -${left}%)`,
   };
 }
@@ -57,7 +57,7 @@ class SimpleModal extends React.Component {
 
 
  handleChange = function() {
-
+  
   };
 
    createItemsList= () => {
@@ -72,13 +72,12 @@ class SimpleModal extends React.Component {
 				      {this.createOptionsList()}
 		          </NativeSelect>
         </FormControl>          
-        <TextField value={item.input} onChange={(e) => this.setState({age: e.target.value})} className="amount" type="number"  margin="normal" />
-           <CloseIcon data-key={item.id} className="modal-close-icon" onClick={this.removeItem} />
+        <TextField value={item.input} onChange={this.handleChange()} className="amount" type="number"  margin="normal" />
+        <div data-key={item.id} onClick={this.removeItem} className="modal-close-div" >&times;  </div>
            </div>
             );
         });
     }
-
     createOptionsList = () => {
       return this.state.items.map((item) => {
           return ( 
@@ -92,43 +91,59 @@ class SimpleModal extends React.Component {
  
 
   removeItem = (event) => {
-    let item = +event.target.attributes.getNamedItem("data-key").value;
-  let delIndex = this.state.items.findIndex(i => i.id === item);
-  this.state.items.splice(delIndex, 1);
-    this.setState({
-        items: this.state.items
-    });
+    console.log(event.target.getAttribute("data-key"))
+    let Delitem = event.target.getAttribute("data-key");
+    // var array = [...this.state.items];
+    // console.log("array бефоре",array)
+  // let index = array.indexOf(+item);
+  // array.splice(index, 1);
 
+  let filteredArray = this.state.items.filter(item => +item.id !== +Delitem)
+  console.log("array state",this.state.items)
+  this.setState({items: filteredArray});
+  console.log("array афтер",filteredArray)
+    // this.setState({
+    //     items: array
+    // });
+    console.log("array state",this.state.items)
 };	
 
 
 addItem = ()  => {
     var newItem = {id: this.state.items.length+1, 
       input: Math.round(Math.random()*100),
-      select: "Test Item" } ;
+      select: "Test Item" + this.state.items.length } ;
       var newArr = this.state.items;
       newArr.push(newItem);
     this.setState({ items: newArr });
 console.log(this.state);
+getModalStyle();
 
   };
 
   handleOpen = () => {
-    this.setState({ open: true });
+    this.setState({ open: true,
+      items: this.props.items
+     });
   };
 
   handleClose = () => {
     this.setState({ open: false });
+    
   };
 
 
-  send = () => {
+  send = (state) => {
+    console.log(this.state);
     this.setState({ open: false });
     store.dispatch({
-            type: 'CHANGE_ITEM',
-            items: this.state.items
-        }
-    );
+      type: 'CHANGE_ITEM',
+      items: this.state.items
+  }
+);
+   
+
+    
 }
 
 
@@ -146,10 +161,10 @@ console.log(this.state);
         > 
           <div style={getModalStyle()} className={classes.paper}>
           <div className="modal-header">
-          <div className={classes.header}>{"Структура номеров"}</div><CloseIcon onClick={this.handleClose} /> </div>
+          <div className={classes.header}>{"Структура номеров"}</div> <CloseIcon onClick={this.handleClose}/>   </div>
           <form className={classes.root} autoComplete="off" >
           <div>{this.createItemsList()}</div>
-        
+          
         <Button color="primary" onClick={this.addItem}>
         Добавить 
       </Button> 

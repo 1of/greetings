@@ -8,8 +8,7 @@ export default function ItemsReducer(state = initialState, action) {
     switch (action.type) {
 
         case 'CHANGE_ITEM':
-            let newArrItems = [...state];
-
+            let newArrItems = [...action.items];
             return newArrItems
 
         default:
