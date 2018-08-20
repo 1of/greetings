@@ -1,0 +1,77 @@
+// Note: This is an example of components style, so please remove it or re-write it on your styles.
+@import url('https://fonts.googleapis.com/css?family=PT+Sans:700&subset=cyrillic');
+$primary_text: #333; 
+
+body {
+  display: flex;
+  justify-content: center;
+}
+section.user {
+  background: #fff;
+  padding: 20px;
+  min-width: 320px;
+  max-width: 720px;
+  position: relative;
+}
+
+p, span {
+  color: $primary_text;
+  font-family: Arial;
+}
+
+
+//Header text
+div.user-info {
+  display: flex;
+  height: 125px;
+  align-items: flex-start;
+  position: relative;
+
+}
+div.photo {
+    width: 30%;
+    z-index: 20;
+}
+div.photo div {
+    float: right;
+    height: 125px;
+    width: 125px;
+    background: url('../images/user.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    border-radius: 50%;
+}
+div.user-description {
+  width: 70%;
+}
+.user-services {
+  display: flex;
+  div{
+    width: 30%;
+  }
+  table {
+    width: 70%;
+  }
+}
+.name {
+  font-size: 16px;
+  font-family: Arial;
+  font-weight: bold;
+}
+.position {
+  color: #808080;
+  font-size: 12px;
+  font-family: Arial;
+}
+.status {
+position: absolute;
+left: 15%;
+
+  background: #fffbc8;
+  font-size: 14px;
+  padding: 8px 10px 8px 15%;
+  border-radius: 5px;
+  border: 1px solid rgba(51,51,51,0.2)
+}

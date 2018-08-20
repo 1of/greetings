@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Silifonov test</title>
+  <link media="all" rel="stylesheet" href="assets/css/vendor.min.css">
+  <link media="all" rel="stylesheet" href="assets/css/style.min.css">
+
+  <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+
+<body>
+
+	<section class="user">
+		<div class="user-info">
+			<div class="photo">
+				<div>			
+				</div>			
+			</div>
+			<div class="user-description">
+				<p class="name">Вероника Ростова</p>
+				<p class="position">Менеджер по продажам</p>
+				<span class="status">Подберу для вас самые лучшие предложения. Мои услуги бесплатны</span>
+			</div>			
+		</div>
+		<div class="user-services">
+				<div></div>
+				<table>
+				    <thead>
+				        <tr>
+				            <th></th>
+				            <th>Услуги</th>
+				        </tr>
+				    </thead>
+				    <tbody>
+				        <tr>
+				            <td class="service-1">Ручное бронирование<span class="bg-line-1"></span></td>
+				            <td>11</td>
+				        </tr>
+				        <tr>
+				            <td class="service-2">Пакетные туры<span class="bg-line-2"></span></td>
+				            <td>3</td>
+				        </tr>
+					    <tr>
+				            <td class="service-3">Отели<span class="bg-line-3"></span></td>
+				            <td>1</td>
+				        </tr>
+				    </tbody>
+				    <tfoot>
+				        <tr>
+				            <td>Всего</td>
+				            <td>15</td>
+				        </tr>
+				    </tfoot>
+				</table>
+			</div>
+	  <!-- Блок с комментариями -->
+		<div id="root"></div>
+	</section>
+
+  <!-- загружаем React component. -->
+  <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+  <!-- Блок с комментариями -->
+  <script type="text/babel" src="src/js/modules/comments.js"></script>
+
+  <script src="assets/js/vendor.min.js" defer></script>
+  <script src="assets/js/app.js" defer></script>
+</body>
+
+</html>
